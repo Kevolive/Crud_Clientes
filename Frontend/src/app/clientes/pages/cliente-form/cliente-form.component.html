@@ -6,20 +6,30 @@
     <div class="field">
       <label>Nombre</label>
       <input pInputText formControlName="nombre" />
-      <small *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="p-error">
-        El nombre es obligatorio
-      </small>
+      <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="p-invalid">
+        <i class="pi pi-exclamation-triangle"></i>
+        <small class="p-error" *ngIf="form.get('nombre')?.errors?.['required']"> El nombre es obligatorio</small>
+        <small class="p-error" *ngIf="form.get('nombre')?.errors?.['minlength']">Mínimo 3 caracteres> El nombre es
+          obligatorio</small>
+      </div>
     </div>
 
     <div class="field">
       <label>Descripción</label>
       <textarea pInputTextarea formControlName="descripcion"></textarea>
+      <small *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched" class="p-error">
+        La descripción es obligatoria y debe tener al menos 10 caracteres
+      </small>
     </div>
 
     <div class="field">
       <label>Técnica</label>
-      <p-dropdown [options]="tecnicas" formControlName="tecnica"  optionLabel="label" optionValue="value" placeholder="Seleccione técnica"></p-dropdown>
-       <small *ngIf="form.get('tecnica')?.invalid && form.get('tecnica')?.touched" class="p-error">
+      <p-dropdown [options]="tecnicas" formControlName="tecnica" optionLabel="label" optionValue="value"
+        [options]="tecnicas" placeholder="Seleccione técnica"
+        [ngClass]="{ 'ng-invalid ng-dirty': f['tecnica'].invalid && (f['tecnica'].dirty || f['tecnica'].touched) }"></p-dropdown>
+      <p-message severity="error" text="Técnica requerida"
+        *ngIf="f['tecnica'].errors?.['required'] && (f['tecnica'].dirty || f['tecnica'].touched)"></p-message>
+      <small *ngIf="form.get('tecnica')?.invalid && form.get('tecnica')?.touched" class="p-error">
         La técnica es obligatoria
       </small>
     </div>
@@ -34,7 +44,7 @@
 
     <div class="field">
       <label>Precio Unitario</label>
-      <p-inputNumber formControlName="precioUnitario" [disabled]="true" mode="currency" currency="COP"></p-inputNumber>
+      <p-inputNumber formControlName="precioUnitario"  mode="currency" currency="COP"></p-inputNumber>
       <small *ngIf="form.get('precioUnitario')?.invalid && form.get('precioUnitario')?.touched" class="p-error">
         El precio unitario es obligatorio
       </small>
@@ -42,7 +52,7 @@
 
     <div class="field">
       <label>Precio Total</label>
-      <p-inputNumber formControlName="precioTotal" [disabled]="true" mode="currency" currency="COP"></p-inputNumber>
+      <p-inputNumber formControlName="precioTotal"  mode="currency" currency="COP"></p-inputNumber>
       <small *ngIf="form.get('precioTotal')?.invalid && form.get('precioTotal')?.touched" class="p-error">
         El precio total es obligatorio
       </small>
@@ -66,7 +76,11 @@
 
     <div class="field">
       <label>Fecha</label>
-      <p-calendar formControlName="fecha" dateFormat="yy-mm-dd"></p-calendar>
+      <p-calendar formControlName="fecha" dateFormat="yy-mm-dd"
+        [ngClass]="{ 'ng-invalid ng-dirty': f['fecha'].invalid && (f['fecha'].dirty || f['fecha'].touched) }"></p-calendar>
+      <p-message severity="error" text="Fecha requerida"
+        *ngIf="f['fecha'].errors?.['required'] && (f['fecha'].dirty || f['fecha'].touched)"></p-message>
+
       <small *ngIf="form.get('fecha')?.invalid && form.get('fecha')?.touched" class="p-error">
         La fecha es obligatoria
       </small>

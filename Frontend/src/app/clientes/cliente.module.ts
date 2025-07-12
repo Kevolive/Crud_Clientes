@@ -14,6 +14,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
 
 
 
@@ -34,6 +36,8 @@ import { CalendarModule } from 'primeng/calendar';
     InputNumberModule,
     DropdownModule,
     CalendarModule,
+    MessageModule,
+    MessagesModule
 
   ]
 })

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 //primeng
 import { ButtonModule } from 'primeng/button';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -20,6 +21,7 @@ import { ButtonModule } from 'primeng/button';
     BrowserAnimationsModule,
     AppRoutingModule,
     ButtonModule,
+    HttpClientModule // Import HttpClientModule to enable HTTP services
 
 
   ],
