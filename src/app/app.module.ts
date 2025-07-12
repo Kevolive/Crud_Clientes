@@ -1,20 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//primeng
+import { ButtonModule } from 'primeng/button';
+
+
+
+
+
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    ButtonModule,
+
+
   ],
-  providers: [
-    provideClientHydration()
+  providers: [provideClientHydration(),
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

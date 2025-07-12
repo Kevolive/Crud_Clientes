@@ -1,0 +1,87 @@
+<div class="card">
+  <h2>{{ editMode ? 'Editar Cliente' : 'Nuevo Cliente' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-fluid">
+
+    <div class="field">
+      <label>Nombre</label>
+      <input pInputText formControlName="nombre" />
+      <small *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="p-error">
+        El nombre es obligatorio
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Descripción</label>
+      <textarea pInputTextarea formControlName="descripcion"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Técnica</label>
+      <p-dropdown [options]="tecnicas" formControlName="tecnica"  optionLabel="label" optionValue="value" placeholder="Seleccione técnica"></p-dropdown>
+       <small *ngIf="form.get('tecnica')?.invalid && form.get('tecnica')?.touched" class="p-error">
+        La técnica es obligatoria
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Cantidad</label>
+      <p-inputNumber formControlName="cantidad"></p-inputNumber>
+      <small *ngIf="form.get('cantidad')?.invalid && form.get('cantidad')?.touched" class="p-error">
+        La cantidad debe ser mayor que 0
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Precio Unitario</label>
+      <p-inputNumber formControlName="precioUnitario" [disabled]="true" mode="currency" currency="COP"></p-inputNumber>
+      <small *ngIf="form.get('precioUnitario')?.invalid && form.get('precioUnitario')?.touched" class="p-error">
+        El precio unitario es obligatorio
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Precio Total</label>
+      <p-inputNumber formControlName="precioTotal" [disabled]="true" mode="currency" currency="COP"></p-inputNumber>
+      <small *ngIf="form.get('precioTotal')?.invalid && form.get('precioTotal')?.touched" class="p-error">
+        El precio total es obligatorio
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Dirección</label>
+      <input pInputText formControlName="direccion" />
+      <small *ngIf="form.get('direccion')?.invalid && form.get('direccion')?.touched" class="p-error">
+        La dirección es obligatoria
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Celular</label>
+      <input pInputText formControlName="cel" />
+      <small *ngIf="form.get('cel')?.invalid && form.get('cel')?.touched" class="p-error">
+        El celular es obligatorio
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Fecha</label>
+      <p-calendar formControlName="fecha" dateFormat="yy-mm-dd"></p-calendar>
+      <small *ngIf="form.get('fecha')?.invalid && form.get('fecha')?.touched" class="p-error">
+        La fecha es obligatoria
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Imagen (URL)</label>
+      <input pInputText formControlName="image" />
+    </div>
+
+    <div class="form-actions">
+      <button pButton type="submit" label="Guardar" icon="pi pi-check" [disabled]="form.invalid"></button>
+      <button pButton type="button" class="p-button-secondary" label="Cancelar" icon="pi pi-times"
+        (click)="onCancel()"></button>
+    </div>
+
+  </form>
+</div>
