@@ -13,7 +13,7 @@ export class Cliente {
   descripcion: string;
 
   @Column()
-  tecnica: 'nanoring' | 'microring';
+  tecnica: string;
 
   @Column('int')
   cantidad: number;

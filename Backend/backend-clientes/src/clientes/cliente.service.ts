@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cliente } from './cliente.entity';
 import { Repository } from 'typeorm';
+import { CreateClienteDto } from './dto/create-cliente.dto';
 
 @Injectable()
 export class ClienteService {
@@ -19,7 +20,8 @@ export class ClienteService {
     return this.clienteRepo.findOneBy({ id });
   }
 
-  create(cliente: Cliente): Promise<Cliente> {
+  create(data:CreateClienteDto): Promise<Cliente> {
+    const cliente = this.clienteRepo.create(data);
     return this.clienteRepo.save(cliente);
   }
 

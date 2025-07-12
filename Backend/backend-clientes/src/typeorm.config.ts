@@ -10,5 +10,5 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   password: 'KevDeb93',
   database: 'clientesdb',
   entities: [Cliente],
-  synchronize: true, // ⚠️ solo para desarrollo
+  synchronize: true
 };
