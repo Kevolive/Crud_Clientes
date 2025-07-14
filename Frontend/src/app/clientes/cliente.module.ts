@@ -16,6 +16,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
+import { PanelModule } from 'primeng/panel';
 
 
 
@@ -35,10 +36,12 @@ import { MessagesModule } from 'primeng/messages';
     InputTextModule,
     InputNumberModule,
     DropdownModule,
-    CalendarModule,
     MessageModule,
-    MessagesModule
+    MessagesModule,
+    PanelModule,
+    CalendarModule
 
   ]
 })
+
 export class ClienteModule { }

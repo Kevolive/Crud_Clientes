@@ -1,30 +1,32 @@
 <div class="card">
 
   <div class="table-header">
-    <h2>Clientes</h2>
+    <h2>Clientes Debora Sanabria Hair</h2>
+
     <button pButton type="button" icon="pi pi-plus" label="Nuevo cliente" (click)="onCreate()"></button>
   </div>
 
+  <div style="overflow-x: auto" class="tabla">
   <p-table
   [value]="clientes"
   [paginator]="true"
   [rows]="5"
   [responsiveLayout]="'scroll'"
-  [tableStyle]="{'min-width': '50rem'}"
   [rowsPerPageOptions]="[5, 10, 20]"
   class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
     <ng-template pTemplate="header">
       <tr>
-        <th style="width:25%">Nombre</th>
-        <th style="width:25%">Descripción</th>
-        <th style="width:25%">Técnica</th>
-        <th style="width:25%">Cantidad</th>
-        <th style="width:25%">Dirección</th>
-        <th style="width:25%">Celular</th>
-        <th style="width:25%">Precio Unitario</th>
-        <th style="width:25%">Precio Total</th>
-        <th style="width:25%">Fecha</th>
-        <th style="width:25%">Acciones</th>
+        <th >Nombre</th>
+        <th >Descripción</th>
+        <th >Técnica</th>
+        <th >Cantidad</th>
+        <th >Dirección</th>
+        <th >Celular</th>
+        <th >Precio Unitario</th>
+        <th >Precio Total</th>
+        <th >Fecha</th>
+        <th >Imagen</th>
+        <th style="width: 100px">Acciones</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-cliente>
@@ -38,6 +40,7 @@
         <td>{{ cliente.precioUnitario | currency: 'COP' }}</td>
         <td>{{ cliente.precioTotal | currency: 'COP' }}</td>
         <td>{{ cliente.fecha | date:'shortDate' }}</td>
+        <td>{{cliente.image}}</td>
 
         <td>
           <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="onEdit(cliente)"></button>
@@ -47,4 +50,5 @@
     </ng-template>
 
   </p-table>
+  </div>
 </div>

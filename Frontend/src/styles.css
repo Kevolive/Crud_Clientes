@@ -3,3 +3,28 @@
   color: red;
 font-size: 0.8rem;
 }
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 5px solid #00050a;
+  margin-bottom: 1rem;
+}
+
+/* body {
+  background-image: url('assets/imagen-global.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+} */
+

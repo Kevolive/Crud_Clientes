@@ -1,3 +1,58 @@
+/* Tu CSS existente */
 .ng-invalid.ng-dirty {
   border: 1px solid red !important;
+}
+
+:host ::ng-deep .p-fluid .p-inputtext,
+:host ::ng-deep .p-fluid .p-inputnumber,
+:host ::ng-deep .p-fluid .p-calendar,
+:host ::ng-deep .p-fluid .p-dropdown {
+  width: 100%;
+  font-size: 0.9rem;
+
+}
+
+
+:host ::ng-deep .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+
+}
+
+:host ::ng-deep .p-button {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+
+}
+
+:host ::ng-deep label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+
+}
+
+.field label {
+    margin-top: 0.5rem;
+
+}
+
+:host ::ng-deep form.p-fluid.grid {
+  padding: 2rem;
+  border: 3px solid #020202;
+}
+
+:host ::ng-deep .p-panel .p-panel-content {
+  padding: 2rem;
+  border: 2px solid #020202;
+}
+
+.card h2 {
+  padding: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 0;
+  margin: 3rem;
+  border: 3px solid #020202;
 }
