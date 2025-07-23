@@ -7,49 +7,51 @@
   </div>
 
   <div style="overflow-x: auto" class="tabla">
-  <p-table
-  [value]="clientes"
-  [paginator]="true"
-  [rows]="5"
-  [responsiveLayout]="'scroll'"
-  [rowsPerPageOptions]="[5, 10, 20]"
-  emptyMessage="No hay clientes para mostrar."
-  class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
-    <ng-template pTemplate="header">
-      <tr>
-        <th >Nombre</th>
-        <th >Descripción</th>
-        <th >Técnica</th>
-        <th >Cantidad</th>
-        <th >Dirección</th>
-        <th >Celular</th>
-        <th >Precio Unitario</th>
-        <th >Precio Total</th>
-        <th >Fecha</th>
-        <th >Imagen</th>
-        <th style="width: 100px">Acciones</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-cliente>
-      <tr>
-        <td>{{ cliente.nombre }}</td>
-        <td style="max-width: 300px; white-space: normal;">{{ cliente.descripcion }}</td>
-        <td>{{ cliente.tecnica }}</td>
-        <td>{{ cliente.cantidad }}</td>
-        <td>{{ cliente.direccion }}</td>
-        <td>{{ cliente.cel }}</td>
-        <td>{{ cliente.precioUnitario | currency: 'COP' }}</td>
-        <td>{{ cliente.precioTotal | currency: 'COP' }}</td>
-        <td>{{ cliente.fecha | date:'shortDate' }}</td>
-        <td>{{cliente.image}}</td>
+    <p-table [value]="clientes" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'"
+      [rowsPerPageOptions]="[5, 10, 20]" emptyMessage="No hay clientes para mostrar."
+      class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Técnica</th>
+          <th>Cantidad</th>
+          <th>Dirección</th>
+          <th>Celular</th>
+          <th>Precio Unitario</th>
+          <th>Precio Total</th>
+          <th>Fecha</th>
+          <th>Imagen</th>
+          <th style="width: 100px">Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cliente>
+        <tr>
+          <td>{{ cliente.nombre }}</td>
+          <td style="max-width: 300px; white-space: normal;">{{ cliente.descripcion }}</td>
+          <td>{{ cliente.tecnica }}</td>
+          <td>{{ cliente.cantidad }}</td>
+          <td>{{ cliente.direccion }}</td>
+          <td>{{ cliente.cel }}</td>
+          <td>{{ cliente.precioUnitario | currency: 'COP' }}</td>
+          <td>{{ cliente.precioTotal | currency: 'COP' }}</td>
+          <td>{{ cliente.fecha | date:'shortDate' }}</td>
+          <td>{{cliente.image}}</td>
 
-        <td>
-          <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" (click)="onEdit(cliente)"></button>
-          <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger" (click)="onDelete(cliente)"></button>
-        </td>
-      </tr>
-    </ng-template>
+          <td>
+            <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"
+              (click)="onEdit(cliente)"></button>
+            <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger"
+              (click)="onDelete(cliente)"></button>
+          </td>
+        </tr>
+      </ng-template>
 
-  </p-table>
+    </p-table>
+    <ng-template #noClientes>
+      <p style="text-align: center; margin-top: 2rem; font-style: italic;">
+        No hay clientes para mostrar.
+      </p>
+    </ng-template>
   </div>
 </div>
