@@ -13,6 +13,7 @@
   [rows]="5"
   [responsiveLayout]="'scroll'"
   [rowsPerPageOptions]="[5, 10, 20]"
+  emptyMessage="No hay clientes para mostrar."
   class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
     <ng-template pTemplate="header">
       <tr>
@@ -32,7 +33,7 @@
     <ng-template pTemplate="body" let-cliente>
       <tr>
         <td>{{ cliente.nombre }}</td>
-        <td>{{ cliente.descripcion }}</td>
+        <td style="max-width: 300px; white-space: normal;">{{ cliente.descripcion }}</td>
         <td>{{ cliente.tecnica }}</td>
         <td>{{ cliente.cantidad }}</td>
         <td>{{ cliente.direccion }}</td>
