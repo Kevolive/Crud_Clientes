@@ -22,12 +22,9 @@ export class ClienteListComponent implements OnInit {
     //servicio local
     this.clienteHttpService.getAll().subscribe(data => {
       this.clientes = data;
-    }),
+    })
 
-      //cliente api
-      this.clienteHttpService.getAll().subscribe(data => {
-        this.clientes = data;
-      });
+
   }
 
   onCreate() {
