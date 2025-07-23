@@ -8,8 +8,7 @@
 
   <div style="overflow-x: auto" class="tabla">
     <p-table [value]="clientes" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'"
-      [rowsPerPageOptions]="[5, 10, 20]" emptyMessage="No hay clientes para mostrar."
-      class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
+      [rowsPerPageOptions]="[5, 10, 20]" class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
       <ng-template pTemplate="header">
         <tr>
           <th>Nombre</th>
@@ -46,12 +45,12 @@
           </td>
         </tr>
       </ng-template>
-
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="11" class="text-center"><strong>No hay clientes registrados</strong></td>
+        </tr>
+      </ng-template>
     </p-table>
-    <ng-template #noClientes>
-      <p style="text-align: center; margin-top: 2rem; font-style: italic;">
-        No hay clientes para mostrar.
-      </p>
-    </ng-template>
+
   </div>
 </div>

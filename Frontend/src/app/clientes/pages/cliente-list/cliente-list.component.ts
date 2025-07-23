@@ -34,7 +34,8 @@ export class ClienteListComponent implements OnInit {
 
   cargarClientes() {
      this.clienteHttpService.getAll().subscribe(data => {
-      this.clientes = data;
+      console.log('Respuesta del backend',data);
+      this.clientes = data ?? [];
     })
   }
 
