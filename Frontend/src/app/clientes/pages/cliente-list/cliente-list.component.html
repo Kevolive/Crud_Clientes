@@ -7,8 +7,9 @@
   </div>
 
   <div style="overflow-x: auto" class="tabla">
-    <p-table [value]="clientes" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'"
-      [rowsPerPageOptions]="[5, 10, 20]" class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
+    <p-table [value]="clientes" [loading]="loading" loadingIcon="pi pi-spinner" [paginator]="true" [rows]="5"
+      [responsiveLayout]="'scroll'" [rowsPerPageOptions]="[5, 10, 20]" emptyMessage="No hay clientes para mostrar."
+      class="p-datatable-sm p-datatable-striped p-datatable-hoverable-rows">
       <ng-template pTemplate="header">
         <tr>
           <th>Nombre</th>

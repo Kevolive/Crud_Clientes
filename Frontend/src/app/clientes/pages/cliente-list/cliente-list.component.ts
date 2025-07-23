@@ -13,6 +13,7 @@ import { filter } from 'rxjs';
 export class ClienteListComponent implements OnInit {
 
   clientes: Cliente[] = [];
+  loading: boolean = true;
 
   constructor(
     private clienteHttpService: ClienteHttpService,
@@ -24,19 +25,28 @@ export class ClienteListComponent implements OnInit {
 
 
     this.router.events
-    .pipe(filter(evente => evente instanceof NavigationEnd))
-    .subscribe(() => {
-      this.cargarClientes();
-    });
+      .pipe(filter(evente => evente instanceof NavigationEnd))
+      .subscribe(() => {
+        this.cargarClientes();
+      });
 
   }
 
 
   cargarClientes() {
-     this.clienteHttpService.getAll().subscribe(data => {
-      console.log('Respuesta del backend',data);
+      this.loading = true;
+
+  this.clienteHttpService.getAll().subscribe({
+    next: (data) => {
       this.clientes = data ?? [];
-    })
+      this.loading = false;
+    },
+    error: (err) => {
+      console.error('Error al cargar clientes:', err);
+      this.clientes = [];
+      this.loading = false;
+    }
+  });
   }
 
   onCreate() {
