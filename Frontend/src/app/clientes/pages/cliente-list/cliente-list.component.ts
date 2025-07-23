@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../interfaces/cliente.interface';
 // import { ClienteService } from '../../services/cliente.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ClienteHttpService } from '../../services/cliente-http.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-cliente-list',
@@ -19,12 +20,22 @@ export class ClienteListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    //servicio local
-    this.clienteHttpService.getAll().subscribe(data => {
+    this.cargarClientes();
+
+
+    this.router.events
+    .pipe(filter(evente => evente instanceof NavigationEnd))
+    .subscribe(() => {
+      this.cargarClientes();
+    });
+
+  }
+
+
+  cargarClientes() {
+     this.clienteHttpService.getAll().subscribe(data => {
       this.clientes = data;
     })
-
-
   }
 
   onCreate() {
@@ -38,8 +49,8 @@ export class ClienteListComponent implements OnInit {
   onDelete(cliente: Cliente) {
     if (confirm(`¿Estás seguro de eliminar al cliente ${cliente.nombre}?`)) {
       this.clienteHttpService.delete(cliente.id).subscribe(() => {
-        this.clientes = this.clientes.filter(c => c.id !== cliente.id);
-      })
+        this.cargarClientes();
+      });
     }
 
   }
